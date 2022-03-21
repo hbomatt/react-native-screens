@@ -76,7 +76,7 @@ export default function HeaderConfig({
   ]);
 
   // We want to clear clearSubscription only when components unmounts or search bar changes
-  React.useEffect(() => clearSubscription, [searchBar]);
+  React.useEffect(() => clearSubscription, [clearSubscription, searchBar]);
 
   const processedSearchBarOptions = React.useMemo(() => {
     if (

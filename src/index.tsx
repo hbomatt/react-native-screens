@@ -1,6 +1,5 @@
 import React from 'react';
 import { Animated, View, ViewProps, ImageProps, Image } from 'react-native';
-import { version } from 'react-native/package.json';
 import { Freeze } from 'react-freeze';
 import {
   ScreenProps,
@@ -33,15 +32,6 @@ let ENABLE_FREEZE = false;
 // @ts-ignore function stub, freezing logic is located in index.native.tsx
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
 export function enableFreeze(shouldEnableReactFreeze = true): void {
-  const minor = parseInt(version.split('.')[1]); // eg. takes 66 from '0.66.0'
-
-  // react-freeze requires react-native >=0.64, react-native from main is 0.0.0
-  if (!(minor === 0 || minor >= 64) && shouldEnableReactFreeze) {
-    console.warn(
-      'react-freeze library requires at least react-native 0.64. Please upgrade your react-native version in order to use this feature.'
-    );
-  }
-
   ENABLE_FREEZE = shouldEnableReactFreeze;
 }
 
